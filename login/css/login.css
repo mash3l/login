@@ -1,0 +1,104 @@
+/* 1. تعريف المتغيرات (Theme Configuration) */
+:root {
+  /* الخطوط */
+  --font-family-sans: "Inter", sans-serif;
+
+  /* الألوان الأساسية */
+  --color-primary: #17a2b8;
+  --color-primary-hover: #138496;
+
+  /* ألوان الوضع الفاتح (Light Mode Defaults) */
+  --bg-background: #f3f4f6;
+  --bg-card: #ffffff;
+  --input-bg: #ffffff; /* افتراضي للحقول في الفاتح */
+  --input-border: #9ca3af; /* يقابل tailwind gray-400 */
+  
+  /* أبعاد وتأثيرات */
+  --border-radius: 0.25rem;
+  --box-shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* 2. إعدادات الوضع الليلي (Dark Mode Overrides) */
+/* يتم تفعيلها عند إضافة كلاس "dark" للـ body أو العنصر الأب */
+.dark {
+  --bg-background: #24353f; /* background-dark */
+  --bg-card: #1d2a35;      /* card-dark */
+  --input-bg: transparent; /* input-bg-dark */
+  --input-border: #4a5d6a; /* input-border-dark */
+}
+
+/* 3. تنسيقات أساسية (Base Styles) */
+body {
+  font-family: var(--font-family-sans);
+  background-color: var(--bg-background);
+  color: #000; /* لون النص الافتراضي */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* في الوضع الليلي نغير لون النص للأبيض */
+.dark body {
+  color: #fff;
+}
+
+/* 4. كلاسات مساعدة (Utility Classes - لمحاكاة كلاسات Tailwind) */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.bg-card {
+  background-color: var(--bg-card);
+  box-shadow: var(--box-shadow-card);
+  border-radius: var(--border-radius);
+}
+
+/* 5. تنسيق الـ Checkbox (الجزء المطلوب تحديداً) */
+/* input[type="checkbox"] { @apply ... } */
+input[type="checkbox"] {
+  appearance: none; /* لإلغاء شكل المتصفح الافتراضي */
+  -webkit-appearance: none;
+  
+  /* rounded */
+  border-radius: var(--border-radius);
+  
+  /* bg-transparent */
+  background-color: transparent;
+  
+  /* border-gray-400 */
+  border: 1px solid var(--input-border);
+  
+  /* أبعاد افتراضية للـ Checkbox المخصص */
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  
+  /* text-primary (لون التحديد) */
+  color: var(--color-primary);
+  
+  transition: all 0.2s ease-in-out;
+}
+
+/* تغيير لون الحدود في الوضع الليلي */
+.dark input[type="checkbox"] {
+  border-color: var(--input-border); /* يأخذ القيمة من متغيرات الـ dark */
+}
+
+/* حالة التركيز (Focus) */
+input[type="checkbox"]:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 0; /* ring-offset-0 */
+  /* ring-offset-transparent هو الافتراضي في الـ outline */
+}
+
+/* حالة التحديد (Checked) - لمحاكاة شكل Tailwind */
+input[type="checkbox"]:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  
+  /* رسم علامة الصح (SVG) كخلفية */
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}

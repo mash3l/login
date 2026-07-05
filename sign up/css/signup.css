@@ -1,0 +1,81 @@
+/* 1. استدعاء خط Inter (لأنه مذكور في الإعدادات) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* 2. تعريف المتغيرات الأساسية (الوضع الفاتح - الافتراضي) */
+:root {
+  /* الخطوط */
+  --font-family: 'Inter', sans-serif;
+
+  /* الألوان الثابتة (لا تتغير بتغير الوضع) */
+  --color-primary: #17a2b8;
+  --color-primary-hover: #138496;
+
+  /* ألوان الخلفيات والنصوص (الوضع الفاتح) */
+  --bg-body: #f3f4f6;       /* background-light */
+  --bg-card: #ffffff;       /* card-light */
+  --text-main: #333333;     /* لون نص افتراضي */
+  
+  /* حقول الإدخال (Inputs) - الوضع الفاتح */
+  --input-bg: #ffffff;
+  --input-border: #ced4da;  /* لون حدود افتراضي للفاتح */
+
+  /* التنسيقات الشكلية */
+  --border-radius: 0.25rem;
+  --box-shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* 3. إعدادات الوضع الليلي (Dark Mode) */
+/* يتم تفعيل هذه القيم عندما يحمل الأب كلاس 'dark' */
+.dark {
+  --bg-body: #24353f;       /* background-dark */
+  --bg-card: #1d2a35;       /* card-dark */
+  --text-main: #ffffff;     /* النص يصبح أبيض */
+  
+  /* حقول الإدخال - الوضع الليلي */
+  --input-bg: transparent;  /* input-bg-dark */
+  --input-border: #4a5d6a;  /* input-border-dark */
+}
+
+/* 4. تطبيق التنسيقات العامة */
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease; /* نعومة في التحويل */
+  margin: 0;
+}
+
+/* 5. كلاسات جاهزة للاستخدام (Utility Classes) */
+
+/* كلاس للبطاقات (Card) */
+.card {
+  background-color: var(--bg-card);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-card);
+  padding: 20px; /* مسافة داخلية افتراضية */
+}
+
+/* كلاس للأزرار الأساسية (Primary Button) */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* تنسيق حقول الإدخال (Inputs) */
+input.form-control {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-main);
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+  width: 100%;
+}

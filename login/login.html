@@ -1,0 +1,62 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Smart Login System - Login</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body class="bg-background-light dark:bg-background-dark font-sans min-h-screen flex items-center justify-center p-4 transition-colors duration-200">
+    <div class="w-full max-w-2xl bg-card-light dark:bg-card-dark rounded-lg shadow-card p-8 md:p-10 lg:p-12 border border-gray-200 dark:border-gray-700 relative overflow-hidden">
+      
+      <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+      
+      <div class="text-center mb-8">
+        <h1 class="text-3xl md:text-4xl font-semibold text-primary tracking-tight">
+          Welcome Back!
+        </h1>
+      </div>
+
+      <form class="space-y-4">
+        <div class="relative">
+          <input class="w-full bg-transparent border border-gray-300 dark:border-input-border-dark text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" id="email" placeholder="Enter your email" type="email" />
+        </div>
+        <div class="relative">
+          <input class="w-full bg-transparent border border-gray-300 dark:border-input-border-dark text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" id="password" placeholder="Enter password" type="password" />
+        </div>
+        
+        <p id="error" class="text-center text-sm font-semibold h-4"></p>
+
+        <div class="flex items-center justify-between text-sm">
+          <label class="flex items-center cursor-pointer group">
+            <input class="w-4 h-4 transition-colors" type="checkbox" />
+            <span class="ml-2 text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors">Remember Me</span>
+          </label>
+          <a class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Forgot Password?</a>
+        </div>
+        
+        <button onclick="login()" class="w-full border border-primary text-primary hover:bg-primary hover:text-white dark:hover:text-white font-medium py-3 px-4 rounded mt-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-gray-900" type="button">
+          Secure Login
+        </button>
+      </form>
+
+      <div class="mt-6 text-center">
+        <p class="text-gray-600 dark:text-gray-400 text-sm">
+          Need an account?
+          <a class="text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary hover:underline transition-colors ml-1" href="../sign up/signup.html">Register Now</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="absolute top-4 right-4">
+      <button class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors flex items-center justify-center" onclick="document.documentElement.classList.toggle('dark')">
+        <span class="material-symbols-outlined text-xl">brightness_4</span>
+      </button>
+    </div>
+    
+    <script src="login.js"></script>
+  </body>
+</html>

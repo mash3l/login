@@ -1,0 +1,72 @@
+/* 1. تعريف المتغيرات (Theme Configuration) */
+:root {
+  /* الخطوط */
+  --font-family-display: "Roboto", sans-serif;
+
+  /* الألوان الأساسية والثابتة */
+  --color-primary: #17a2b8;   /* Teal */
+  --color-secondary: #ffc107; /* Yellow/Orange */
+
+  /* ألوان الوضع الفاتح (Light Mode Defaults) */
+  --bg-background: #f8f9fa;   /* background-light */
+  --bg-card: #ffffff;         /* card-light */
+  --text-color: #212529;      /* لون نص افتراضي داكن للفاتح */
+  
+  /* الظلال */
+  --box-shadow-custom: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* ظل افتراضي خفيف */
+  
+  /* الحواف */
+  --border-radius: 0.25rem;
+}
+
+/* 2. إعدادات الوضع الليلي (Dark Mode Overrides) */
+/* يتم تفعيلها عند إضافة كلاس "dark" للـ body أو html */
+.dark {
+  --bg-background: #24353f;   /* background-dark */
+  --bg-card: #1d2a35;         /* card-dark */
+  --text-color: #ffffff;      /* لون نص أبيض للداكن */
+  
+  /* boxShadow: custom-dark */
+  --box-shadow-custom: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* 3. تنسيقات أساسية (Base Styles) */
+body {
+  font-family: var(--font-family-display);
+  background-color: var(--bg-background);
+  color: var(--text-color);
+  margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease; /* نعومة في التحويل */
+}
+
+/* 4. كلاسات مساعدة (Utility Classes) لاستخدام الألوان */
+
+/* للنصوص */
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+
+/* للخلفيات (مثل البطاقات) */
+.bg-card {
+  background-color: var(--bg-card);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-custom); /* سيأخذ الظل المناسب حسب الوضع */
+}
+
+/* للأزرار (مثال) */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: #000; /* النص أسود عادة مع الأصفر */
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+}
