@@ -44,8 +44,7 @@ function login() {
 
         // التوجيه للصفحة الرئيسية
         setTimeout(function() {
-            // نخرج من login (../) ثم ندخل home ثم نفتح index.html
-            location.href = "../home/index.html"; 
+            location.href = "home/index.html";
         }, 1000);
 
     } else {

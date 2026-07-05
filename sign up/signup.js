@@ -57,8 +57,7 @@ function add() {
 
             // الانتقال لصفحة تسجيل الدخول بعد ثانية واحدة
             setTimeout(function(){
-                // المسار: نخرج من (sign up) ثم ندخل (login) ثم الملف (login.html)
-                location.href = "../login/login.html"; 
+                location.href = "../index.html";
             }, 1000);
         }
     }
